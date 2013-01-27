@@ -1,0 +1,3 @@
+[submodule "windows/power.shell.ing"]
+	path = windows/power.shell.ing
+	url = git@github.com:abhishekkr/power.shell.ing.git
