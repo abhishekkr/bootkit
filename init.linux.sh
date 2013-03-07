@@ -1,7 +1,13 @@
 #!/bin/bash
+
+# on a minimal system need to add user before it
+##### make me sudoer
+su -c "usermod -a -G wheel $USER"
+su -c "sed -i -r 's/^#.*%wheel.*\(ALL\)[ \t]*ALL$/%wheel\ \ \ \ \ \ \ \ ALL\=\(ALL\)\ \ \ \ \ \ \ ALL/' /etc/sudoers"
+
 ##################################################
 # making sure of TYPES
-#
+
 if [ -f /etc/redhat_version ]; then
   DISTROBASE='RedHat'
   BASE_PACKAGES='libyaml-devel libxml2-devel zlib-devel openssl make gcc gcc-c++ kernel-headers kernel-devel'
