@@ -1,0 +1,13 @@
+[atrpms-stable]
+name=Fedora Core $releasever - $basearch - ATrpms
+baseurl=http://dl.atrpms.net/el$releasever-$basearch/atrpms/stable
+gpgkey=http://ATrpms.net/RPM-GPG-KEY.atrpms
+enabled=0
+gpgcheck=1
+
+[atrpms-testing]
+name=Fedora Core $releasever - $basearch - ATrpms
+baseurl=http://dl.atrpms.net/el$releasever-$basearch/atrpms/testing
+gpgkey=http://ATrpms.net/RPM-GPG-KEY.atrpms
+enabled=0
+gpgcheck=1

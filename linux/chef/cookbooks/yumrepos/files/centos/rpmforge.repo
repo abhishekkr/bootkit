@@ -1,0 +1,5 @@
+[rpmforge]
+name=RHEL6 RPMForge
+baseurl=http://apt.sw.be/redhat/el6/en/x86_64/rpmforge/
+gpgcheck=0
+enabled=0

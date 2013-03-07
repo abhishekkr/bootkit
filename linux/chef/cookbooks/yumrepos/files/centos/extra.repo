@@ -1,0 +1,25 @@
+[virtualbox]
+name=RHEL/CentOS-$releasever / $basearch - VirtualBox
+baseurl=http://download.virtualbox.org/virtualbox/rpm/rhel/$releasever/$basearch
+enabled=1
+gpgcheck=0
+
+[adobe-linux-x86_64]
+name=Adobe Systems Incorporated
+baseurl=http://linuxdownload.adobe.com/linux/x86_64/
+enabled=1
+gpgcheck=0
+
+
+
+[google-chrome]
+name=google-chrome
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
+enabled=1
+gpgcheck=0
+
+[google]
+name=Google - $basearch
+baseurl=http://dl.google.com/linux/rpm/stable/$basearch
+enabled=1
+gpgcheck=0

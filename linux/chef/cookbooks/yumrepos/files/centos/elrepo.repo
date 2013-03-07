@@ -1,0 +1,30 @@
+### Name: ELRepo.org Community Enterprise Linux Repository for el6
+### URL: http://elrepo.org/
+
+[elrepo]
+name=ELRepo.org Community Enterprise Linux Repository - el$releasever
+baseurl=http://elrepo.org/linux/elrepo/el$releasever/$basearch/
+mirrorlist=http://elrepo.org/mirrors-elrepo.el$releasever
+enabled=1
+gpgcheck=0
+
+[elrepo-testing]
+name=ELRepo.org Community Enterprise Linux Testing Repository - el$releasever
+baseurl=http://elrepo.org/linux/testing/el$releasever/$basearch/
+mirrorlist=http://elrepo.org/mirrors-elrepo-testing.el$releasever
+enabled=0
+gpgcheck=0
+
+[elrepo-kernel]
+name=ELRepo.org Community Enterprise Linux Kernel Repository - el$releasever
+baseurl=http://elrepo.org/linux/kernel/el$releasever/$basearch/
+mirrorlist=http://elrepo.org/mirrors-elrepo-kernel.el$releasever
+enabled=0
+gpgcheck=0
+
+[elrepo-extras]
+name=ELRepo.org Community Enterprise Linux Repository - el$releasever
+baseurl=http://elrepo.org/linux/extras/el$releasever/$basearch/
+mirrorlist=http://elrepo.org/mirrors-elrepo-extras.el$releasever
+enabled=0
+gpgcheck=0

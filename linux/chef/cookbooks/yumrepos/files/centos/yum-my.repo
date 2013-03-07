@@ -1,0 +1,5 @@
+[yum-my-el$releasever-$basearch]
+name=RHEL/CentOS-$releasever / $basearch - Yum-My
+baseurl=http://yum-my.appspot.com/yummy/el$releasever/$basearch
+enabled=0
+gpgcheck=0

@@ -1,0 +1,17 @@
+[nodejs-stable]
+name=Stable releases of Node.js
+#baseurl=http://nodejs.tchol.org/stable/el$releasever/$basearch/
+mirrorlist=http://nodejs.tchol.org/mirrors/nodejs-stable-el$releasever
+enabled=0
+skip_if_unavailable=1
+gpgcheck=0
+#gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-nodejs-stable-el-$releasever
+
+[nodejs-stable-source]
+name=Stable releases of Node.js - source
+#baseurl=http://nodejs.tchol.org/stable/el$releasever/SRPMS/
+mirrorlist=http://nodejs.tchol.org/mirrors/nodejs-stable-source-el$releasever
+enabled=0
+skip_if_unavailable=1
+gpgcheck=0
+#gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-nodejs-stable-el-$releasever

@@ -1,0 +1,5 @@
+[adobe-linux-x86_64]
+name=Adobe Systems Incorporated
+baseurl=http://linuxdownload.adobe.com/linux/$basearch/
+enabled=1
+gpgcheck=0

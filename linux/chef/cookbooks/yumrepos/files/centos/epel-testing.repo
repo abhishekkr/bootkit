@@ -1,0 +1,23 @@
+[epel-testing]
+name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/$releasever/$basearch
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-epel$releasever&arch=$basearch
+failovermethod=priority
+enabled=0
+gpgcheck=0
+
+[epel-testing-debuginfo]
+name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Debug
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/$releasever/$basearch/debug
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-debug-epel$releasever&arch=$basearch
+failovermethod=priority
+enabled=0
+gpgcheck=0
+
+[epel-testing-source]
+name=Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Source
+#baseurl=http://download.fedoraproject.org/pub/epel/testing/$releasever/SRPMS
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=testing-source-epel$releasever&arch=$basearch
+failovermethod=priority
+enabled=0
+gpgcheck=0

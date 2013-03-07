@@ -1,0 +1,6 @@
+[virtualbox]
+name=RHEL/CentOS-$releasever / $basearch - VirtualBox
+baseurl=http://download.virtualbox.org/virtualbox/rpm/rhel/$releasever/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc

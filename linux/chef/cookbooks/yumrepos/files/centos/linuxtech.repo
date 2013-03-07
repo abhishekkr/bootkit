@@ -1,0 +1,20 @@
+[linuxtech-release]
+name=LinuxTECH.NET el$releasever production repo
+baseurl=http://pkgrepo.linuxtech.net/el$releasever/release/
+enabled=0
+gpgcheck=1
+gpgkey=http://pkgrepo.linuxtech.net/el$releasever/release/RPM-GPG-KEY-LinuxTECH.NET
+
+[linuxtech-testing]
+name=LinuxTECH.NET el$releasever testing repo
+baseurl=http://pkgrepo.linuxtech.net/el$releasever/testing/
+enabled=0
+gpgcheck=1
+gpgkey=http://pkgrepo.linuxtech.net/el$releasever/release/RPM-GPG-KEY-LinuxTECH.NET
+
+[linuxtech-backports]
+name=LinuxTECH.NET el$releasever backports repo
+baseurl=http://pkgrepo.linuxtech.net/el$releasever/backports/
+enabled=0
+gpgcheck=1
+gpgkey=http://pkgrepo.linuxtech.net/el$releasever/release/RPM-GPG-KEY-LinuxTECH.NET

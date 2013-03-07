@@ -1,0 +1,13 @@
+[rbel$releasever]
+name = RBEL $releasever Repo
+baseurl = http://rbel.frameos.org/stable/el$releasever/$basearch
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-RBEL
+gpgcheck = 1
+enabled = 0
+
+[rbel$releasever-testing]
+name = RBEL $releasever Testing Repo
+baseurl = http://rbel.frameos.org/testing/el$releasever/$basearch
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-RBEL
+gpgcheck = 1
+enabled = 0
