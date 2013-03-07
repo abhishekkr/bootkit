@@ -32,6 +32,10 @@ nix_package install curl rsync wget git
 nix_package install $BASE_PACKAGES
 
 curl -sL https://get.rvm.io | sudo bash -s stable --ruby
+echo 'export rvmsudo_secure_path=1' >> /etc/profile.d/rvm.sh
+echo 'source ~/.rvm/scripts/rvm' >> /etc/profile.d/rvm.sh
+export rvmsudo_secure_path=1
+source ~/.rvm/scripts/rvm
 rvm requirements run
 rvm gemset create
 rvmsudo gem install bundler --no-ri --no-rdoc
@@ -47,4 +51,4 @@ bundle install
 ##################################################
 # preparing
 #
-rvm_be chef-solo -j $CHEF_CONFIG/solo.json -c $CHEF_CONFIG/solo.rb
+rvmsudo chef-solo -j $CHEF_CONFIG/solo.json -c $CHEF_CONFIG/solo.rb
