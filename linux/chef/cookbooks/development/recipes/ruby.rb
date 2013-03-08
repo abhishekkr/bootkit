@@ -3,10 +3,11 @@
 # Recipe:: ruby
 #
 
+node[:ruby][:dependency_packages].each {|pkgname| package pkgname }
+
 execute "get.rvm" do
   command "curl -L https://get.rvm.io | bash -s stable --ruby"
-  user node[:user]
   not_if 'which rvm'
 end
 
-node[:gems].each {|gemname| gem_package gemname }
+node[:ruby][:gems].each {|gemname| gem_package gemname }

@@ -51,4 +51,4 @@ bundle install
 ##################################################
 # preparing
 #
-rvmsudo chef-solo -j $CHEF_CONFIG/solo.json -c $CHEF_CONFIG/solo.rb
+rvmsudo USER=$USER HOME=$HOME chef-solo -j $CHEF_CONFIG/solo.json -c $CHEF_CONFIG/solo.rb
