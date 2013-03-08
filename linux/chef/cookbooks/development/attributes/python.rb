@@ -1,0 +1,1 @@
+default[:python][:packages] = ['', 'python-devel', 'GitPython', 'audit-libs-python', 'fuse-python', 'python-crypto', 'python-flask', 'python-virtualenv', 'python-webpy', 'rrdtool-python', 'pyflakes', 'shedskin']

@@ -1,0 +1,1 @@
+default[:perl][:packages] = ['perl', 'colorize', 'rrdtool-perl', 'pcre', 'perl-Crypt-PasswdMD5', 'perl-Crypt-Primes', 'perl-Crypt-RSA', 'perl-Crypt-Random', 'perl-Net-Whois', 'perl-Net-Pcap', 'perl-NetPacket', 'perl-NetPacket-LLC', 'perl-YAML-Syck', 'perl-prefork']
