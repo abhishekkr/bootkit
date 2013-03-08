@@ -1,5 +1,9 @@
+#
+# Cookbook Name:: yumrepos
+# Recipe:: rpmdev
+#
+#
 # placing required yum-repos
-
 [ 'adobe-linux-x86_64.repo',
 'epel.repo',
 'google-chrome.repo',
@@ -12,3 +16,5 @@
     mode 00644
   end
 end
+
+include_recipe 'yumrepos::rpmdev'
