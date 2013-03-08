@@ -4,3 +4,4 @@
 #
 
 include_recipe 'development::languages'
+include_recipe 'development::scm'
