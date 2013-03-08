@@ -1,1 +1,3 @@
-default[:python][:packages] = ['python-devel', 'GitPython', 'audit-libs-python', 'fuse-python', 'python-crypto', 'python-flask', 'python-virtualenv', 'python-webpy', 'rrdtool-python', 'pyflakes', 'shedskin']
+default[:python][:packages] = ['python', 'python-devel', 'GitPython', 'audit-libs-python', 'fuse-python', 'python-crypto', 'python-flask', 'python-pip', 'python-virtualenv', 'python-webpy', 'rrdtool-python', 'pyflakes', 'shedskin']
+
+default[:pypy][:packages] = ['pypy', 'pypy-libs', 'pypy-devel']
