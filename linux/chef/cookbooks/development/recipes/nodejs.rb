@@ -15,5 +15,8 @@ template "/etc/profile.d/nvm.sh" do
 end
 
 execute "get-nodejs-nvm-0.8.22" do
-  command "source #{ File.join ENV['HOME'], '.nvm', 'nvm.sh'} ; nvm install 0.8.22"
+  command "source #{ node[:nodejs][:source] } ;
+           nvm install #{ node[:nodejs][:version] } ;
+           nvm use #{ node[:nodejs][:version] }"
+  not_if  "nvm ls | grep current | grep #{node[:nodejs][:version]}"
 end
