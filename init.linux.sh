@@ -11,11 +11,11 @@ su -c "sed -i -r 's/^#.*%wheel.*\(ALL\)[ \t]*ALL$/%wheel\ \ \ \ \ \ \ \ ALL\=\(A
 if [ -f /etc/redhat_version ]; then
   DISTROBASE='RedHat'
   BASE_PACKAGES='libyaml-devel libxml2-devel zlib-devel openssl make gcc gcc-c++ kernel-headers kernel-devel'
-  NIX_PACKAGE='sudo yum -y install'
+  alias nix_package='sudo yum -y install'
 elif [ -f /etc/debian_version ]; then
   DISTROBASE='Debian'
   BASE_PACKAGES='libyaml-dev libxml2-dev zlib1g-dev openssl make gcc g++'
-  NIX_PACKAGE='sudo apt-get -y install'
+  alias nix_package='sudo apt-get -y install'
 fi
 export $DISTROBASE
 
@@ -23,12 +23,13 @@ BOOTKIT_GIT='git://github.com/abhishekkr/bootkit.git'
 BOOTKIT_TMP='/tmp/bootkit'
 BOOTKIT_TUX=$BOOTKIT_TMP'/linux'
 CHEF_CONFIG=$BOOTKIT_TUX'/chef/config'
+alias rvm_be='rvmsudo bundle exec'
 
 ##################################################
 # getting base set-up prepared
 #
-$NIX_PACKAGE install curl rsync wget git
-$NIX_PACKAGE install $BASE_PACKAGES
+nix_package install curl rsync wget git
+nix_package install $BASE_PACKAGES
 
 curl -sL https://get.rvm.io | sudo bash -s stable --ruby
 echo 'export rvmsudo_secure_path=1' >> /etc/profile.d/rvm.sh
