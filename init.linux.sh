@@ -8,32 +8,30 @@ su -c "sed -i -r 's/^#.*%wheel.*\(ALL\)[ \t]*ALL$/%wheel\ \ \ \ \ \ \ \ ALL\=\(A
 ##################################################
 # making sure of TYPES
 
-if [ -f /etc/redhat_version ]; then
-  DISTROBASE='RedHat'
-  BASE_PACKAGES='libyaml-devel libxml2-devel zlib-devel openssl make gcc gcc-c++ kernel-headers kernel-devel'
-  alias nix_package='sudo yum -y install'
+if [ -f /etc/redhat-release ]; then
+  export DISTROBASE='RedHat'
+  export BASE_PACKAGES='libyaml-devel libxml2-devel zlib-devel openssl make gcc gcc-c++ kernel-headers kernel-devel openssl-devel openssl-static libffi libffi-devel'
+  export nix_package='sudo yum -y install'
 elif [ -f /etc/debian_version ]; then
-  DISTROBASE='Debian'
-  BASE_PACKAGES='libyaml-dev libxml2-dev zlib1g-dev openssl make gcc g++'
-  alias nix_package='sudo apt-get -y install'
+  export DISTROBASE='Debian'
+  export BASE_PACKAGES='libyaml-dev libxml2-dev zlib1g-dev openssl make gcc g++ libssl-dev libffi libffi-dev'
+  export nix_package='sudo apt-get -y install'
 fi
-export $DISTROBASE
 
-BOOTKIT_GIT='git://github.com/abhishekkr/bootkit.git'
-BOOTKIT_TMP='/tmp/bootkit'
-BOOTKIT_TUX=$BOOTKIT_TMP'/linux'
-CHEF_CONFIG=$BOOTKIT_TUX'/chef/config'
-alias rvm_be='rvmsudo bundle exec'
+export BOOTKIT_GIT='git://github.com/abhishekkr/bootkit.git'
+export BOOTKIT_TMP='/tmp/bootkit'
+export BOOTKIT_TUX=$BOOTKIT_TMP'/linux'
+export CHEF_CONFIG=$BOOTKIT_TUX'/chef/config'
 
 ##################################################
 # getting base set-up prepared
 #
-nix_package install curl rsync wget git
-nix_package install $BASE_PACKAGES
+$nix_package install curl rsync wget git
+$nix_package install $BASE_PACKAGES
 
-curl -sL https://get.rvm.io | sudo bash -s stable --ruby
-echo 'export rvmsudo_secure_path=1' >> /etc/profile.d/rvm.sh
-echo 'source ~/.rvm/scripts/rvm' >> /etc/profile.d/rvm.sh
+curl -L https://get.rvm.io | sudo bash -s stable --ruby
+echo "export rvmsudo_secure_path=1" | sudo tee /etc/profile.d/rvm.sh
+echo "source $HOME/.rvm/scripts/rvm" | sudo tee /etc/profile.d/rvm.sh
 export rvmsudo_secure_path=1
 source ~/.rvm/scripts/rvm
 rvm requirements run
