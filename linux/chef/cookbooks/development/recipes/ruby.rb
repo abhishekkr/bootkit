@@ -11,4 +11,6 @@ execute "get.rvm" do
   not_if 'which rvm'
 end
 
+['ffi', 'childprocess'].each {|gemname| gem_package gemname }
+
 node[:ruby][:gems].each {|gemname| gem_package gemname }

@@ -44,6 +44,7 @@ rvm ruby-1.9.3-p392
 rvm gemset create
 rvmsudo gem install bundler --no-ri --no-rdoc
 rvmsudo gem install rake --no-ri --no-rdoc
+sudo chown -R $USER /usr/local/rvm/
 
 ##################################################
 # fetching git repo and submodules
