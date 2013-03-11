@@ -29,12 +29,18 @@ export CHEF_CONFIG=$BOOTKIT_TUX'/chef/config'
 $nix_package install curl rsync wget git
 $nix_package install $BASE_PACKAGES
 
+export RVM_DIR='/usr/local/rvm'
+export SOURCE_RVM="source $RVM_DIR/scripts/rvm"
 curl -L https://get.rvm.io | sudo bash -s stable --ruby
+sudo usermod -a -G rvm $USER
+sudo chmod -R g+w /usr/local/rvm/
 echo "export rvmsudo_secure_path=1" | sudo tee /etc/profile.d/rvm.sh
-echo "source $HOME/.rvm/scripts/rvm" | sudo tee /etc/profile.d/rvm.sh
+echo $SOURCE_RVM | sudo tee /etc/profile.d/rvm.sh
 export rvmsudo_secure_path=1
-source ~/.rvm/scripts/rvm
+$SOURCE_RVM
 rvm requirements run
+rvmsudo rvm install ruby-1.9.3-p392
+rvm ruby-1.9.3-p392
 rvm gemset create
 rvmsudo gem install bundler --no-ri --no-rdoc
 rvmsudo gem install rake --no-ri --no-rdoc
@@ -42,8 +48,13 @@ rvmsudo gem install rake --no-ri --no-rdoc
 ##################################################
 # fetching git repo and submodules
 #
-git clone --recurse-submodules $BOOTKIT_GIT $BOOTKIT_TMP
+echo "fetching git repo and submodules..."
+if [ -f $BOOTKIT_GIT ]; then
+  echo 'cloning bootkit...'
+  git clone --recursive $BOOTKIT_GIT $BOOTKIT_TMP
+fi
 cd $BOOTKIT_TUX
+git pull
 bundle install
 
 ##################################################
