@@ -55,6 +55,7 @@ if [ -f $BOOTKIT_GIT ]; then
   git clone --recursive $BOOTKIT_GIT $BOOTKIT_TMP
 fi
 cd $BOOTKIT_TUX
+git checkout .
 git pull
 bundle install
 
@@ -62,3 +63,4 @@ bundle install
 # preparing
 #
 rvmsudo USER=$USER HOME=$HOME chef-solo -j $CHEF_CONFIG/solo.json -c $CHEF_CONFIG/solo.rb
+gem install vagrant --no-ri --no-rdoc
