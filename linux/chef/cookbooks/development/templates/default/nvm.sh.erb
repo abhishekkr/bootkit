@@ -1,1 +1,1 @@
-[[ -s <%= ENV['HOME'] %>/.nvm/nvm.sh ]] && . <%= ENV['HOME'] %>/.nvm/nvm.sh # This loads NVM
+[[ -s <%= node[:nodejs][:source] %> ]] && . <%= node[:nodejs][:source] %> # This loads NVM
