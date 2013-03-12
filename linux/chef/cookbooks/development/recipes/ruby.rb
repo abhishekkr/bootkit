@@ -10,5 +10,3 @@ execute "get.rvm" do
   user    ENV['USER']
   not_if 'which rvm'
 end
-
-node[:ruby][:gems].each {|gemname| gem_package gemname }
