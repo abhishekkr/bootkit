@@ -4,3 +4,4 @@
 #
 
 package 'finger'
+package 'xpdf'
