@@ -1,0 +1,17 @@
+[apt.sw.be-dag-el$releasever-$basearch]
+name=RHEL/CentOS-$releasever / $basearch - APT SW BE DAG
+baseurl=http://apt.sw.be/redhat/el$releasever/en/$basearch/dag/
+enabled=0
+gpgcheck=0
+
+[apt.sw.be-buildtools-el$releasever-$basearch]
+name=RHEL/CentOS-$releasever / $basearch - APT SW BE BUILDTOOLS
+baseurl=http://apt.sw.be/redhat/el$releasever/en/$basearch/buildtools/
+enabled=0
+gpgcheck=0
+
+[apt.sw.be-extras-el$releasever-$basearch]
+name=RHEL/CentOS-$releasever / $basearch - APT SW BE EXTRAS
+baseurl=http://apt.sw.be/redhat/el$releasever/en/$basearch/extras/
+enabled=0
+gpgcheck=0
