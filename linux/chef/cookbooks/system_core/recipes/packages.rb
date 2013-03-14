@@ -5,10 +5,22 @@
 
 include_recipe 'yumrepos'
 
-['tree', 'htop', 'vim', 'zsh'].each do |pkg_name|
+node[:system_core][:packages][:shell].each do |pkg_name|
   package pkg_name
 end
 
-['google-chrome-stable', 'xchat', 'pidgin', 'transmission'].each do |pkg_name|
+node[:system_core][:packages][:virtualization].each do |pkg_name|
+  package pkg_name
+end
+
+node[:system_core][:packages][:gui].each do |pkg_name|
+  package pkg_name
+end
+
+node[:system_core][:packages][:storage].each do |pkg_name|
+  package pkg_name
+end
+
+node[:system_core][:packages][:security].each do |pkg_name|
   package pkg_name
 end
