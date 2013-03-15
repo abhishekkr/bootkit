@@ -3,5 +3,4 @@
 # Recipe:: default
 #
 
-package 'finger'
-package 'xpdf'
+include_recipe 'utilities::packages'

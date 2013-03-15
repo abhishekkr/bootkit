@@ -1,0 +1,7 @@
+default[:utilities][:packages][:browser] = ['elinks', 'google-chrome-stable', 'flash-plugin']
+default[:utilities][:packages][:communicate] = ['xchat', 'pidgin']
+default[:utilities][:packages][:remote]  = ['rdesktop', 'tigervnc']
+default[:utilities][:packages][:service] = ['samba', 'httpd', 'crypto-utils', 'nginx', 'mod_ssl', 'mod_wsgi', 'webalizer', 'haproxy', 'keepalived']
+default[:utilities][:packages][:entertainment]  = ['gnome-media', 'gnome-media-apps', 'mplayer', 'SDL', 'SDL-devel', 'SDL_mixer', 'SDL_ttf', 'xine', 'xine-lib', 'gxine', 'vlc', 'xmms', 'xmms-aac', 'xmms-arts', 'xmms-musepack', 'xnoise']
+default[:utilities][:packages][:media]  = ['audacity', 'ffmpeg', 'flac', 'lame', 'dd_rescue', 'oggconvert']
+default[:utilities][:packages][:toolbox]  = ['txt2man', 'txt2regex', 'txt2tags','uni2ascii', 'units', 'unix2dos', 'finger', 'xpdf']
