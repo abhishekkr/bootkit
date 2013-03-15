@@ -3,6 +3,7 @@
 # Recipe:: languages
 #
 
+include_recipe 'development::devtools'
 include_recipe 'development::clang'
 include_recipe 'development::java'
 include_recipe 'development::perl'
