@@ -22,6 +22,7 @@ export BOOTKIT_GIT='git://github.com/abhishekkr/bootkit.git'
 export BOOTKIT_TMP='/tmp/bootkit'
 export BOOTKIT_TUX=$BOOTKIT_TMP'/linux'
 export CHEF_CONFIG=$BOOTKIT_TUX'/chef/config'
+echo 'insecure' > ~/.curlrc
 
 ##################################################
 # getting base set-up prepared
