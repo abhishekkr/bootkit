@@ -9,6 +9,8 @@ su -c "sed -i -r 's/^#.*%wheel.*\(ALL\)[ \t]*ALL$/%wheel\ \ \ \ \ \ \ \ ALL\=\(A
 # making sure of TYPES
 
 if [ -f /etc/redhat-release ]; then
+  sudo wget -c -O /etc/yum.repos.d/epel.repo https://raw.github.com/abhishekkr/bootkit/master/linux/chef/cookbooks/yumrepos/files/centos/epel.repo
+  sudo yum clean all
   export DISTROBASE='RedHat'
   export BASE_PACKAGES='libyaml-devel libxml2-devel zlib-devel openssl make gcc gcc-c++ kernel-headers kernel-devel openssl-devel openssl-static libffi libffi-devel'
   export nix_package='sudo yum -y install'
@@ -32,26 +34,30 @@ $nix_package install $BASE_PACKAGES
 
 export RVM_DIR='/usr/local/rvm'
 export SOURCE_RVM="source $RVM_DIR/scripts/rvm"
-curl -L https://get.rvm.io | sudo bash -s stable --ruby
-sudo usermod -a -G rvm $USER
-sudo chmod -R g+w /usr/local/rvm/
-echo "export rvmsudo_secure_path=1" | sudo tee /etc/profile.d/rvm.sh
-echo $SOURCE_RVM | sudo tee /etc/profile.d/rvm.sh
+if [ ! -f "$RVM_DIR/bin/rvm" ]; then
+  curl -L https://get.rvm.io | sudo bash -s stable --ruby
+  sudo usermod -a -G rvm $USER
+  sudo chmod -R g+w $RVM_DIR
+  echo "export rvm_auto_reload_flag=1" | sudo tee $HOME/.rvmrc
+  echo "export rvmsudo_secure_path=1" | sudo tee /etc/profile.d/rvm.sh
+  echo $SOURCE_RVM | sudo tee /etc/profile.d/rvm.sh
+  rvm requirements run
+fi
+export rvm_auto_reload_flag=1
 export rvmsudo_secure_path=1
 $SOURCE_RVM
-rvm requirements run
 rvmsudo rvm install ruby-1.9.3-p392
-rvm ruby-1.9.3-p392
+rvm ruby-1.9.3-p392 --default
 rvm gemset create
 rvmsudo gem install bundler --no-ri --no-rdoc
 rvmsudo gem install rake --no-ri --no-rdoc
-sudo chown -R $USER /usr/local/rvm/
+sudo chown -R $USER $RVM_DIR
 
 ##################################################
 # fetching git repo and submodules
 #
 echo "fetching git repo and submodules..."
-if [ -f $BOOTKIT_GIT ]; then
+if [ ! -f $BOOTKIT_GIT ]; then
   echo 'cloning bootkit...'
   git clone --recursive $BOOTKIT_GIT $BOOTKIT_TMP
 fi
